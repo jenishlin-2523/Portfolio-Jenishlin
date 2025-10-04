@@ -1,0 +1,427 @@
+/* ================= BODY ================= */
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  scrollbar-width:none;
+}
+
+body {
+ margin: 0;
+ font-family: monospace,'Times New Roman', Times, serif;
+ background: #f0f2f5;
+ background-image: 
+ linear-gradient(to bottom right, rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0 0 L 100 0 L 100 100 L 0 100 Z' fill='none' stroke='black' stroke-width='1' /%3E%3C/svg%3E");
+
+ background-size: 70px 70px; /* size of each grid cell */
+ color: #333;
+ 
+ 
+}
+
+/* ================= APP CONTAINER ================= */
+.app-container {
+ display: flex;
+ flex-direction: column;
+ padding: 20px;
+ max-width: 1400px;
+ margin: auto;
+}
+
+/* ================= CONTENT AREA ================= */
+.content-area {
+ display: flex;
+ gap: 30px;
+ align-items: flex-start;
+}
+
+
+/* ================= RIGHT SIDE (Header + Main) ================= */
+.right-side {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+  overflow-y: auto;
+ gap: 25px;
+}
+
+/* ================= HEADER ================= */
+.header {
+ width: 76%;
+ background: #fff;
+ border-radius: 10px;
+ border: 2px solid #bdbaba; /* solid red border */
+ border: 2px solid #bdbaba;
+ padding: 35px 2px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: sticky;
+ top: 0;
+ z-index: 10;
+ transition: all 0.3s ease;
+ margin-left: 320px;
+ overflow: hidden;
+ 
+ /* Subtle top border */
+ border-top: 3px solid rgba(122, 58, 237, 0.4); /* light purple, semi-transparent */
+ border-bottom: 3px solid rgba(122, 58, 237, 0.4); /* Changed to a solid purple */
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* soft shadow for depth */
+}
+
+.header nav {
+ position: relative;
+}
+
+.header nav ul {
+ list-style: none;
+ display: flex;
+ gap: 25px;
+ margin: 0;
+ padding: 0;
+ position: relative;
+}
+
+.header nav ul li a {
+ text-decoration: none;
+ color: #333;
+ font-weight: 600;
+ padding: 10px 20px;
+ border-radius: 20px;
+ transition: color 0.3s ease;
+ position: relative;
+ z-index: 1;
+}
+
+
+
+/* Sliding pill indicator behind the active link */
+.nav-indicator {
+ position: absolute;
+ bottom: -.7rem;
+ height: 200%;
+ background: #f1e9ff; /* Light purple pill */
+ border-radius: 10px;
+ transition: all 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+ z-index: 0; /* Behind links */
+}
+
+/* Active link text */
+.header nav ul li a.active {
+ color: #7a3aed; /* Dark purple text */
+ font-weight: 700;
+}
+
+.nav-links a .nav-icon {
+  display: none;
+}
+.nav-links a .nav-text {
+  display: inline;
+}
+
+
+
+
+/* ================= LOADING SCREEN ================= */
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #dcd7e0;
+  color: #333;
+  overflow: hidden;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fade-pulse 2.3s infinite;
+}
+
+@keyframes fade-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.avatar {
+  width: 100%; /* Make the image fill the width of its parent container */
+  height: 100%; /* Make the image fill the height of its parent container */
+  object-fit: cover; /* This is the key. It ensures the image covers the container without being stretched. */
+  border-radius: 50%; /* Maintains the circular shape */
+}
+
+.loading-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #565658;
+  margin-bottom: 15px;
+}
+
+.loading-bar-container {
+  width: 180px;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.loading-bar {
+  width: 100%; /* Make the bar fill the container */
+  height: 100%;
+  background: linear-gradient(to right, transparent, #7a3aed, transparent); /* Faded purple glow effect */
+  animation: loading-simple 2s linear forwards; /* New animation for single pass */
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes pulse-avatar {
+  0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+  50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); }
+  100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+}
+
+/* New keyframes for a simple, single-pass loading animation */
+@keyframes loading-simple {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+ .content-area {
+ gap: 20px;
+ }
+
+.sidebar {
+ flex: 0 0 250px;
+ padding: 20px;
+ }
+
+ .main-content {
+ padding: 20px;
+ }
+}
+
+@media (max-width: 1024px) {
+ .content-area {
+ flex-direction: column;
+ }
+
+ .sidebar {
+ width: 100%;
+ position: relative;
+top: 0;
+}
+
+.right-side {
+ width: 100%;
+}
+
+.header {
+position: relative;
+
+}
+}
+
+
+
+/* ================== MOBILE FIXES ================== */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    background-size: 50px 50px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Ensure no horizontal scroll */
+  }
+
+  /* App Container */
+  .app-container {
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* Content Area */
+  .content-area {
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    margin-right: 0;
+    overflow-x: hidden;
+  }
+
+  /* Header reset */
+  .header {
+    width: 100% !important;
+    margin-left: 0 !important; 
+  }
+
+  /* Main content reset */
+  .main-content {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* Sidebar (Drawer style) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: 85%; /* Instead of fixed 260px */
+    width: 460px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(8px);
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    z-index: 1200;
+    border-right: 2px solid rgba(122, 58, 237, 0.25);
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Overlay */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: 1100;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Header */
+  .header {
+    width: 100%; /* No fixed 95% */
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 18px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+
+  /* Main Content */
+  .main-content {
+    width: 100%;
+    padding: 15px;
+    gap: 18px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  /* Services stacked */
+  .services {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .service-card {
+    width: 100%;
+    min-width: auto;
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* Mobile Footer Button */
+  .mobile-footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background:white;
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    z-index: 1300;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 90%; /* Prevent overflow */
+    text-align: center;
+  }
+
+  .mobile-footer:hover {
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+
+
+
+
+/* Mobile: hide text, show icons */
+@media (max-width: 768px) {
+
+
+  .nav-links a {
+    padding: 10px;
+    font-size: 1.3rem;
+  }
+
+  .nav-links a .nav-text {
+    display: none;
+  }
+
+  .nav-links a .nav-icon {
+    display: inline-block;
+    font-size: 1.4rem;
+  }
+
+.nav-indicator {
+  bottom: -3px;                   /* just below icon */
+  height: 3px;                    /* thickness */
+  border-radius: 1px;
+  background: #7a3aed;
+  width: 100000%;  
+  transition: transform 0.35s ease, width 0.35s ease;
+}
+
+
+
+}

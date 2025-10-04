@@ -1,0 +1,224 @@
+/* ================= GENERAL & LAYOUT ================= */
+
+/* Consistent with your 'about' page */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+ font-family: monospace,'Times New Roman', Times, serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.resume-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  border: 2px solid #bdbaba;
+  border-top: 3px solid rgba(122, 58, 237, 0.4);
+  border-bottom: 3px solid rgba(122, 58, 237, 0.4);
+}
+
+/* ================= HEADER & SECTION TITLES ================= */
+
+.resume-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.resume-header h1 {
+  font-size: 2.2em;
+  color: #333333;
+  font-weight: 600;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+}
+
+h2 .lucide {
+  color: #7a3aed;
+}
+
+/* ================= MAIN CONTENT LAYOUT ================= */
+
+.resume-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 30px;
+}
+
+/* ================= EXPERIENCE SECTION ================= */
+
+.experience-section {
+  position: relative;
+  /* Add back the border-left for the timeline line */
+  border-left: 2px solid #e0e6ed; 
+  padding-left: 20px;
+}
+
+
+.job-entry {
+  position: relative;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e6ed;
+  transition: all 0.3s ease; /* Add transition for a smooth effect */
+}
+
+/* Add the hover effect */
+.job-entry:hover {
+  transform: translateY(-5px); /* Lifts the card up */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Adds a stronger shadow for depth */
+}
+
+/* Style the timeline dot */
+.job-entry::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 25px;
+  width: 10px;
+  height: 10px;
+  background-color: #7a3aed;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  z-index: 1;
+}
+
+.job-entry h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.job-entry p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #666666;
+}
+
+/* ================= EDUCATION & SKILLS SECTIONS ================= */
+
+/* Container for the content, without the heading */
+.section-details-container {
+    background-color: #f9fafb;
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid #e0e6ed;
+    transition: all 0.3s ease; /* Add a smooth transition */
+}
+
+/* Add the hover effect to the container */
+.section-details-container:hover {
+    transform: translateY(-5px); /* Lifts the card up */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Adds a stronger shadow */
+}
+
+/* Ensure sections have spacing between them */
+.education-section, .skills-section {
+    margin-bottom: 20px;
+}
+
+/* Remove padding from the headings themselves if they're not in the card */
+h2 {
+    /* Your existing heading styles */
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 10px; /* This padding provides space between the heading and the container */
+}
+
+.education-entry h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333333;
+}
+
+.education-entry p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #666666;
+    margin: 5px 0;
+}
+
+/* Skills list styling */
+.skills-list {
+    display: grid; /* Change to grid for two columns */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 15px; /* Adjust gap between skill items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style each individual skill item as a pill */
+.skill-item {
+    background-color: #ffffff;
+    border-radius: 6px; /* Slightly more rounded corners */
+    padding: 12px 18px; /* Adjusted padding for a larger feel */
+    border: 1px solid #e0e6ed;
+    font-size: 0.9em; /* Slightly larger font size */
+    color: #555;
+    font-weight: 500;
+    white-space: nowrap;
+    display: flex; /* Use flex to align the line and text */
+    align-items: center; /* Vertically center content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03); /* Subtle shadow for depth */
+    transition: all 0.2s ease-in-out; /* Smooth transition on hover */
+}
+
+/* Add the purple vertical line */
+.skill-item::before {
+    content: '';
+    display: inline-block;
+    width: 3px; /* Thickness of the line */
+    height: 100%; /* Make it fill the height of the item */
+    background-color: #7a3aed; /* Your primary purple color */
+    border-radius: 2px; /* Slightly rounded ends for the line */
+    margin-right: 12px; /* Space between the line and the text */
+    vertical-align: middle; /* Align with text */
+}
+
+.skill-item:hover {
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* More prominent shadow on hover */
+    border-color: #7a3aed; /* Highlight border on hover */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 480px) {
+    .skills-list {
+        grid-template-columns: 1fr; /* Stack skills in a single column on small screens */
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .resume-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,185 @@
+/* Base modal styles (unchanged) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 80%;
+  max-width: 700px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-image {
+  width: 200px;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-description {
+  margin: 15px 0;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-tag {
+  background: #eee;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* Container for buttons */
+.modal-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Button styles */
+.modal-visit-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #7a3aed;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.modal-visit-btn:hover {
+  background-color: #7a3aed;
+  transform: translateY(-2px);
+}
+
+.modal-close-bottom-btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.modal-close-bottom-btn:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* ------------------ MOBILE RESPONSIVE ------------------ */
+/* MOBILE RESPONSIVE MODAL */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .modal-image {
+    width: 120px;
+    margin: 0 0 10px 0;
+    border-radius: 6px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+
+  .modal-description {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  .tech-tags {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .tech-tag {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 15px;
+  }
+
+  .modal-buttons-container {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;  /* Center buttons horizontally */
+  }
+
+  .modal-visit-btn,
+  .modal-close-bottom-btn {
+    width: 80%;           /* Optional: slightly smaller than full width */
+    text-align: center;    /* Center text inside button */
+    padding: 10px 0;
+    font-size: 14px;
+    border-radius: 6px;
+    display: flex;         /* For perfect centering */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-visit-btn:hover,
+  .modal-close-bottom-btn:hover {
+    transform: translateY(-1px);
+  }
+}
